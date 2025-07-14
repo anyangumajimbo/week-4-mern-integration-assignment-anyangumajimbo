@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -35,6 +37,13 @@ const Posts = () => {
             <li key={post._id}>
               <h3 className="text-lg font-bold">{post.title}</h3>
               <p>{post.content}</p>
+              <div className="mt-2">
+    <Link to={`/edit/${post._id}`}
+      className="text-blue-600 hover:underline text-sm"
+    >
+      Edit
+    </Link>
+  </div>
               <hr className="my-2" />
             </li>
           ))}
